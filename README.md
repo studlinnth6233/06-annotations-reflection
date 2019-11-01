@@ -1,5 +1,4 @@
-_This is an assignment to the class [Programmieren 3](https://hsro-inf-prg3.github.io) at the [Technical University of Applied Sciences Rosenheim](https://www.th-rosenheim.de)._
-
+_This is an assignment to the class [Advanced Programming](https://hsro-inf-fpk.github.io) at the [University of Applied Sciences Rosenheim](http://www.th-rosenheim.de)._
 
 # Assignment 6: Annotations and Reflection
 [![Travis CI](https://travis-ci.org/hsro-inf-prg3/06-annotations-reflection.svg?branch=master)](https://travis-ci.org/hsro-inf-prg3/06-annotations-reflection)
