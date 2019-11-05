@@ -72,7 +72,7 @@ The following code snippet shows the structure of a simple JSON object:
 }
 ```
 
-The most basic use case is to de/serialize objects; by defaut, Gson uses reflection to determine the properties.
+The most basic use case is to de/serialize objects; by default, Gson uses reflection to determine the properties.
 
 ```java
 class Joke {
@@ -89,7 +89,7 @@ Gson gson = new Gson();
 Joke j = gson.fromJson("{\"id\": 0, \"joke\": \"Haha.\"}", Joke.class);
 // categories remains `null`
 
-// Objec --> JSON String
+// Object --> JSON String
 String json = gson.toJson(j);
 ```
 
