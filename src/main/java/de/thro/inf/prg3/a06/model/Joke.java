@@ -1,5 +1,6 @@
 package de.thro.inf.prg3.a06.model;
 
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -10,9 +11,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  */
 public final class Joke
 {
-	private int number;
-	private String content;
-	private String[] rubrics;
+	@SerializedName("id")         int number;
+	@SerializedName("joke")       String content;
+	@SerializedName("categories") String[] rubrics;
 
 	public int getNumber()
 	{
