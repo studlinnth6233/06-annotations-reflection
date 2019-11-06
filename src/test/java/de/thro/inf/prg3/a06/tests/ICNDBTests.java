@@ -15,18 +15,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Peter Kurfer
  * Created on 11/10/17.
  */
-class ICNDBTests {
+class ICNDBTests
+{
 
 	private static final Logger logger = LogManager.getLogger(ICNDBTests.class);
 	private static final int REQUEST_COUNT = 10;
 
 	@Test
-	void testCollision() throws IOException {
+	void testCollision() throws IOException
+	{
 		Set<Integer> jokeNumbers = new HashSet<>();
 		int requests = 0;
 		boolean collision = false;
 
-		while (requests++ < REQUEST_COUNT) {
+		while (requests++ < REQUEST_COUNT)
+		{
 			// TODO Prepare call object
 
 			// TODO Perform a synchronous request
@@ -35,7 +38,8 @@ class ICNDBTests {
 
 			Joke j = null;
 
-			if(jokeNumbers.contains(j.getNumber())) {
+			if (jokeNumbers.contains(j.getNumber()))
+			{
 				logger.info(String.format("Collision at joke %s", j.getNumber()));
 				collision = true;
 				break;

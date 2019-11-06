@@ -8,21 +8,25 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @author Peter Kurfer
  * Created on 11/9/17.
  */
-public final class Joke {
+public final class Joke
+{
 	private int number;
 	private String content;
 	private String[] rubrics;
 
-	public int getNumber() {
+	public int getNumber()
+	{
 		return number;
 	}
 
-	public String getContent() {
+	public String getContent()
+	{
 		return content;
 	}
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(Object o)
+	{
 		if (this == o) return true;
 
 		if (!(o instanceof Joke)) return false;
@@ -30,27 +34,29 @@ public final class Joke {
 		Joke joke1 = (Joke) o;
 
 		return new EqualsBuilder()
-				.append(getNumber(), joke1.getNumber())
-				.append(getContent(), joke1.getContent())
-				.append(rubrics, joke1.rubrics)
-				.isEquals();
+			.append(getNumber(), joke1.getNumber())
+			.append(getContent(), joke1.getContent())
+			.append(rubrics, joke1.rubrics)
+			.isEquals();
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		return new HashCodeBuilder(17, 37)
-				.append(getNumber())
-				.append(getContent())
-				.append(rubrics)
-				.toHashCode();
+			.append(getNumber())
+			.append(getContent())
+			.append(rubrics)
+			.toHashCode();
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return new ToStringBuilder(this)
-				.append("number", number)
-				.append("content", content)
-				.append("rubrics", rubrics)
-				.toString();
+			.append("number", number)
+			.append("content", content)
+			.append("rubrics", rubrics)
+			.toString();
 	}
 }
