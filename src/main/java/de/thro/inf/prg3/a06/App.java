@@ -3,6 +3,11 @@ package de.thro.inf.prg3.a06;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import de.thro.inf.prg3.a06.model.Joke;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import java.io.IOException;
 
 /**
  * @author Peter Kurfer
@@ -10,21 +15,20 @@ import de.thro.inf.prg3.a06.model.Joke;
  */
 public class App
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		Gson gson = new GsonBuilder().registerTypeAdapter(Joke.class, new JokeAdapter()).create();
 
-		Joke joke = gson.fromJson("{\n" +
-			"  \"type\": \"success\",\n" +
-			"  \"value\": {\n" +
-			"    \"id\": 467,\n" +
-			"    \"joke\": \"Chuck Norris can delete the Recycling Bin.\",\n" +
-			"    \"categories\": [\n" +
-			"      \"nerdy\"\n" +
-			"    ]\n" +
-			"  }\n" +
-			"}", Joke.class);
+		Retrofit retrofit = new Retrofit.Builder()
+			.baseUrl("http://api.icndb.com/jokes/random/")
+			.addConverterFactory(GsonConverterFactory.create(gson))
+			.build();
 
-		System.out.println(joke);
+		ICNDBApi icndb = retrofit.create(ICNDBApi.class);
+
+		Call<Joke> jokeCall = icndb.getRandomJoke();
+		Joke joke = jokeCall.execute().body();
+
+		System.out.println(joke.getContent());
 	}
 }
