@@ -20,15 +20,18 @@ public class App
 		Gson gson = new GsonBuilder().registerTypeAdapter(Joke.class, new JokeAdapter()).create();
 
 		Retrofit retrofit = new Retrofit.Builder()
-			.baseUrl("http://api.icndb.com/jokes/random/")
+			.baseUrl("http://api.icndb.com/jokes/")
 			.addConverterFactory(GsonConverterFactory.create(gson))
 			.build();
 
 		ICNDBApi icndb = retrofit.create(ICNDBApi.class);
 
-		Call<Joke> jokeCall = icndb.getRandomJoke();
-		Joke joke = jokeCall.execute().body();
+		while(true)
+		{
+			Call<Joke> jokeCall = icndb.getRandomJoke();
+			Joke joke = jokeCall.execute().body();
 
-		System.out.println(joke.getContent());
+			System.out.println(joke.getContent());
+		}
 	}
 }

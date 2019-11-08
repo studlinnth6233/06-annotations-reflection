@@ -3,6 +3,8 @@ package de.thro.inf.prg3.a06;
 import de.thro.inf.prg3.a06.model.Joke;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 import java.util.List;
 
@@ -12,10 +14,15 @@ import java.util.List;
  */
 public interface ICNDBApi
 {
-	@GET("random") Call<Joke> getRandomJoke();
-	Call<Joke> getRandomJoke(String[] categoriesToInclude);
+	@GET("random")
+	Call<Joke> getRandomJoke();
 
-	Call<List<Joke>> getRandomJokes(int count);
+	@GET("random")
+	Call<Joke> getRandomJoke(@Query("limitTo") String[] categoriesToInclude);
 
-	Call<Joke> getJokeByID(int id);
+	@GET("random")
+	Call<List<Joke>> getRandomJokes(@Query("count") int count);
+
+	@GET("{id}")
+	Call<Joke> getJokeByID(@Path("id") int id);
 }
