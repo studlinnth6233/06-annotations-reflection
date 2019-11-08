@@ -36,6 +36,16 @@ public final class Joke
 	}
 
 	/**
+	 * GETTER : rubrics
+	 *
+	 * @return Categories of the joke
+	 */
+	public String[] getRubrics()
+	{
+		return rubrics;
+	}
+
+	/**
 	 * Compares to jokes by their id, content and categories
 	 *
 	 * @param o Joke to compare to
