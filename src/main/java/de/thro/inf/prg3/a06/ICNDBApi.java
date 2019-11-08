@@ -14,15 +14,41 @@ import java.util.List;
  */
 public interface ICNDBApi
 {
+	/**
+	 * Send HTTP-GET Request to the Server to receive a random joke
+	 *
+	 * @return Call including the received joke
+	 */
 	@GET("random")
 	Call<Joke> getRandomJoke();
 
+	/**
+	 * Send HTTP-GET Request to the Server to receive a random joke limited by categories
+	 *
+	 * @param categoriesToInclude Array of categories to limit the request by
+	 *
+	 * @return Call including the received joke
+	 */
 	@GET("random")
 	Call<Joke> getRandomJoke(@Query("limitTo") String[] categoriesToInclude);
 
+	/**
+	 * Send HTTP-GET Request to the Server to receive x amount of random jokes
+	 *
+	 * @param count Amount of random jokes to receive
+	 *
+	 * @return Call including List of received jokes
+	 */
 	@GET("random")
 	Call<List<Joke>> getRandomJokes(@Query("count") int count);
 
+	/**
+	 * Send HTTP-GET Request to the Server to receive joke by its ID
+	 *
+	 * @param id ID of the joke to receive
+	 *
+	 * @return Call including the received joke
+	 */
 	@GET("{id}")
 	Call<Joke> getJokeByID(@Path("id") int id);
 }

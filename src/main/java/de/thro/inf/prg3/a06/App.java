@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import de.thro.inf.prg3.a06.model.Joke;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -26,12 +27,13 @@ public class App
 
 		ICNDBApi icndb = retrofit.create(ICNDBApi.class);
 
-		while(true)
-		{
-			Call<Joke> jokeCall = icndb.getRandomJoke();
-			Joke joke = jokeCall.execute().body();
+		Call<Joke>     jokeCall     = icndb.getRandomJoke();
+		Response<Joke> jokeResponse = jokeCall.execute();
 
-			System.out.println(joke.getContent());
-		}
+		if (!jokeResponse.isSuccessful())
+			System.out.println(String.format("Error Code : %d", jokeResponse.code()));
+
+		else
+			System.out.println(jokeResponse.body().getContent());
 	}
 }

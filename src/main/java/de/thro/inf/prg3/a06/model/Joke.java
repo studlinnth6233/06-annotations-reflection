@@ -15,16 +15,33 @@ public final class Joke
 	@SerializedName("joke")       String content;
 	@SerializedName("categories") String[] rubrics;
 
+	/**
+	 * GETTER : number
+	 *
+	 * @return ID of the joke
+	 */
 	public int getNumber()
 	{
 		return number;
 	}
 
+	/**
+	 * GETTER : content
+	 *
+	 * @return Content of the joke
+	 */
 	public String getContent()
 	{
 		return content;
 	}
 
+	/**
+	 * Compares to jokes by their id, content and categories
+	 *
+	 * @param o Joke to compare to
+	 *
+	 * @return True / False whether jokes are equal or not
+	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -41,6 +58,11 @@ public final class Joke
 			.isEquals();
 	}
 
+	/**
+	 * Calculate the hash code for the joke
+	 *
+	 * @return HashCode for the joke
+	 */
 	@Override
 	public int hashCode()
 	{
@@ -51,6 +73,11 @@ public final class Joke
 			.toHashCode();
 	}
 
+	/**
+	 * Converts the joke into a readable String format
+	 *
+	 * @return String representation of the joke
+	 */
 	@Override
 	public String toString()
 	{
